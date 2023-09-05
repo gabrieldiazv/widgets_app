@@ -18,11 +18,15 @@ class AppTheme {
             'El color debe ser menor o igual a ${colorList.length - 9}');
 
   ThemeData getTheme() => ThemeData(
-    useMaterial3: true, 
-    brightness: isDarkMode ? Brightness.dark : Brightness.light,
-    colorSchemeSeed: colorList[selectColor],
-    appBarTheme: const AppBarTheme(
-      centerTitle: true,
-    ), 
-  );
+        useMaterial3: true,
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
+        colorSchemeSeed: colorList[selectColor],
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+        ),
+      );
+
+  AppTheme copyWith({int? selectColor, bool? isDarkMode}) => AppTheme(
+      selectColor: selectColor ?? this.selectColor,
+      isDarkMode: isDarkMode ?? this.isDarkMode);
 }
